@@ -1,0 +1,11 @@
+bindkey -s ^f "tmux-sessionizer\n"
+
+addToPath() {
+    if [[ "$PATH" != *"$1"* ]]; then
+        export PATH=$PATH:$1
+    fi
+}
+
+alias vim="nvim"
+addToPath $HOME/.local/bin
+addToPath $HOME/.local/go/bin
