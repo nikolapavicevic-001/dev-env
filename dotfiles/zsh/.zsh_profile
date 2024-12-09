@@ -1,11 +1,24 @@
 bindkey -s ^f "tmux-sessionizer\n"
 
+alias vim="nvim"
+alias ll="ls -la"
+
+bindkey -s '^p' 'cd $(find ~/ -mindepth 1 -maxdepth 3 -type d | fzf)\n'
+
+zstyle ':completion:*:*:docker:*' option-stacking yes
+zstyle ':completion:*:*:docker-*:*' option-stacking yes
+
+export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix --hidden --follow --exclude .git trash'
+export HTTPS=true
+export SSL_CRT_FILE=/home/npavicevic/workspace/oblo_cloud/strat_backbone/customer/local/docker-third-party/nginx/resources/ssl/server_auto.crt
+export SSL_KEY_FILE=/home/npavicevic/workspace/oblo_cloud/strat_backbone/customer/local/docker-third-party/nginx/resources/ssl/client_auto.key
 addToPath() {
     if [[ "$PATH" != *"$1"* ]]; then
         export PATH=$PATH:$1
     fi
 }
-
-alias vim="nvim"
 addToPath $HOME/.local/bin
-addToPath $HOME/.local/go/bin
+addToPath /usr/local/go/bin
+addToPath $HOME/flutter/bin
+addToPath $HOME/go/bin
+
