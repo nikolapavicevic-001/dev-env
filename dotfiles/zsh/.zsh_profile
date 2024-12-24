@@ -3,7 +3,7 @@ bindkey -s ^f "tmux-sessionizer\n"
 alias vim="nvim"
 alias ll="ls -la"
 
-bindkey -s '^p' 'cd $(find ~/ -mindepth 1 -maxdepth 3 -type d | fzf)\n'
+bindkey -s '^p' 'cd $(find ~/ -mindepth 1 -maxdepth 7 -type d | fzf)\n'
 
 zstyle ':completion:*:*:docker:*' option-stacking yes
 zstyle ':completion:*:*:docker-*:*' option-stacking yes
