@@ -1,9 +1,16 @@
 bindkey -s ^f "tmux-sessionizer\n"
 
+tmux_fzf_switch() {
+  tmux list-sessions | sed -E 's/:.*$//' | grep -v "^$(tmux display-message -p '#S')$" | fzf --reverse | xargs tmux switch-client -t
+}
+
 alias vim="nvim"
 alias ll="ls -la"
-
+alias lzd="lazydocker"
 bindkey -s '^p' 'cd $(find ~/ -mindepth 1 -maxdepth 7 -type d | fzf)\n'
+
+zle -N tmux_fzf_switch
+bindkey '^t' tmux_fzf_switch
 
 zstyle ':completion:*:*:docker:*' option-stacking yes
 zstyle ':completion:*:*:docker-*:*' option-stacking yes
@@ -12,11 +19,13 @@ export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix --hidden --follow --e
 export HTTPS=true
 export SSL_CRT_FILE=/home/npavicevic/workspace/oblo_cloud/strat_backbone/customer/local/docker-third-party/nginx/resources/ssl/server_auto.crt
 export SSL_KEY_FILE=/home/npavicevic/workspace/oblo_cloud/strat_backbone/customer/local/docker-third-party/nginx/resources/ssl/client_auto.key
+
 addToPath() {
     if [[ "$PATH" != *"$1"* ]]; then
         export PATH=$PATH:$1
     fi
 }
+
 addToPath $HOME/.local/bin
 addToPath /usr/local/go/bin
 addToPath $HOME/flutter/bin
