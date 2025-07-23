@@ -40,3 +40,10 @@ vim.keymap.set(
     "<leader>ee",
     "oif err != nil {<CR>}<Esc>Oreturn err<Esc>"
 )
+
+vim.keymap.set('n', '<C-t>', "<nop>")
+vim.keymap.set('i', '<C-t>', "<nop>")
+vim.keymap.set('v', '<C-t>', "<nop>")
+
+
+

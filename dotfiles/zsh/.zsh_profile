@@ -31,3 +31,11 @@ addToPath /usr/local/go/bin
 addToPath $HOME/flutter/bin
 addToPath $HOME/go/bin
 
+export HADOOP_CONF_DIR=/home/npavicevic/work/bds/pyspark-playground/yarn
+export YARN_CONF_DIR=/home/npavicevic/work/bds/pyspark-playground/yarn
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh2)"
+
+eval "$(pyenv virtualenv-init -)"

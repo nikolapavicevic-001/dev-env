@@ -23,4 +23,6 @@ ln -s $HOME/personal/dev-env/dotfiles/alacritty ~/.config/alacritty
 # EXECUTABLES
 mkdir -p $HOME/.local/bin
 rm -rf ~/.local/bin/tmux-sessionizer
-ln -s $HOME/personal/dev-env/dotfiles/executables/tmux-sessionizer ~/.local/bin/tmux-sessionizer
+rm -rf ~/.local/bin/dev-commit
+ln -s $HOME/personal/dev-env/scripts/tmux-sessionizer ~/.local/bin/tmux-sessionizer
+ln -s $HOME/personal/dev-env/scripts/dev-commit ~/.local/bin/dev-commit
