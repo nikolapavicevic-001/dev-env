@@ -26,3 +26,24 @@ rm -rf ~/.local/bin/tmux-sessionizer
 rm -rf ~/.local/bin/dev-commit
 ln -s $HOME/personal/dev-env/scripts/tmux-sessionizer ~/.local/bin/tmux-sessionizer
 ln -s $HOME/personal/dev-env/scripts/dev-commit ~/.local/bin/dev-commit
+
+# Hyprland
+
+rm -rf ~/.config/hypr/hyprland.conf
+ln -s $HOME/personal/dev-env/dotfiles/hyprland/hyprland.conf ~/.config/hypr/hyprland.conf
+
+rm -rf ~/.config/hypr/hyprlock.conf
+ln -s $HOME/personal/dev-env/dotfiles/hyprland/hyprlock.conf ~/.config/hypr/hyprlock.conf
+
+rm -rf ~/.config/hypr/hyprpaper.conf
+ln -s $HOME/personal/dev-env/dotfiles/hyprland/hyprpaper.conf ~/.config/hypr/hyprpaper.conf
+
+# WAYBAR
+
+rm -rf ~/.config/waybar/config.jsonc
+ln -s $HOME/personal/dev-env/dotfiles/waybar/config.jsonc ~/.config/waybar/config.jsonc
+
+rm -rf ~/.config/waybar/style.css
+ln -s $HOME/personal/dev-env/dotfiles/waybar/style.css ~/.config/waybar/style.css
+
+

@@ -32,7 +32,7 @@ vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "100"
 
-vim.g.copilot_node_command = "/usr/local/n/versions/node/22.5.1/bin/node"
+vim.g.copilot_node_command = "/usr/bin/node"
 
 vim.opt.conceallevel = 1
 

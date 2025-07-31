@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+paru -S npm
+sudo npm i -g n
+sudo n lts

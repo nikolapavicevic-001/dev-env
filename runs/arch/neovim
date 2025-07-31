@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+paru -S --noconfirm neovim lua51 luarocks
+

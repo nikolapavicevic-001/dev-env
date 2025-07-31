@@ -4,7 +4,7 @@ return {
     event = "BufReadPost",
     config = function()
         require("copilot").setup({
-            copilot_node_command = "/usr/local/n/versions/node/22.5.1/bin/node",
+            copilot_node_command = "/usr/bin/node",
             suggestion = {
                 enabled = true,
                 auto_trigger = true,
