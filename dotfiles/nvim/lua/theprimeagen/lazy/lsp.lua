@@ -71,14 +71,16 @@ return {
             sources = cmp.config.sources({
                 { name = 'nvim_lsp' },
                 { name = 'luasnip' }, -- For luasnip users.
-                { name = 'copilot' }
             }, {
                 { name = 'buffer' },
             })
         })
 
         vim.diagnostic.config({
-            -- update_in_insert = true,
+            virtual_text = {
+                spacing = 4,
+            },
+            update_in_insert = true,
             float = {
                 focusable = false,
                 style = "minimal",
