@@ -1,0 +1,192 @@
+/*******************************************************************************
+ * ROFI CATPPUCCIN MOCHA THEME
+ * Beautiful Catppuccin Mocha colors with elegant design
+ ******************************************************************************/
+
+* {
+    /* Catppuccin Mocha colors */
+    rosewater: #f5e0dc;
+    flamingo:  #f2cdcd;
+    pink:      #f5c2e7;
+    mauve:     #cba6f7;
+    red:       #f38ba8;
+    maroon:    #eba0ac;
+    peach:     #fab387;
+    yellow:    #f9e2af;
+    green:     #a6e3a1;
+    teal:      #94e2d5;
+    sky:       #89dceb;
+    sapphire:  #74c7ec;
+    blue:      #89b4fa;
+    lavender:  #b4befe;
+    
+    text:      #cdd6f4;
+    subtext1:  #bac2de;
+    subtext0:  #a6adc8;
+    overlay2:  #9399b2;
+    overlay1:  #7f849c;
+    overlay0:  #6c7086;
+    surface2:  #585b70;
+    surface1:  #45475a;
+    surface0:  #313244;
+    
+    base:      #1e1e2e;
+    mantle:    #181825;
+    crust:     #11111b;
+    
+    background-color: transparent;
+    text-color: @text;
+    font: "JetBrainsMono Nerd Font 11";
+}
+
+window {
+    location: center;
+    width: 650px;
+    background-color: @base;
+    border: 3px solid;
+    border-color: @mauve;
+    border-radius: 20px;
+    padding: 30px;
+}
+
+mainbox {
+    background-color: transparent;
+    spacing: 20px;
+    children: [ "inputbar", "message", "listview" ];
+}
+
+inputbar {
+    background-color: @surface0;
+    border-radius: 15px;
+    padding: 15px 20px;
+    spacing: 15px;
+    children: [ "prompt", "entry" ];
+}
+
+prompt {
+    background-color: @mauve;
+    text-color: @crust;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font: "JetBrainsMono Nerd Font Bold 11";
+}
+
+entry {
+    background-color: transparent;
+    text-color: @text;
+    placeholder: "Type to search...";
+    placeholder-color: @overlay0;
+    padding: 10px 5px;
+}
+
+message {
+    background-color: @surface0;
+    border-radius: 12px;
+    padding: 15px;
+    margin: 0px;
+}
+
+textbox {
+    background-color: transparent;
+    text-color: @text;
+    padding: 5px;
+}
+
+listview {
+    background-color: transparent;
+    columns: 1;
+    lines: 8;
+    spacing: 10px;
+    cycle: true;
+    dynamic: true;
+    scrollbar: true;
+}
+
+element {
+    background-color: transparent;
+    text-color: @text;
+    padding: 12px 15px;
+    border-radius: 12px;
+    spacing: 15px;
+}
+
+element-icon {
+    background-color: transparent;
+    size: 32px;
+}
+
+element-text {
+    background-color: transparent;
+    text-color: inherit;
+    vertical-align: 0.5;
+}
+
+element normal.normal {
+    background-color: @surface0;
+    text-color: @text;
+}
+
+element normal.urgent {
+    background-color: @red;
+    text-color: @crust;
+}
+
+element normal.active {
+    background-color: @green;
+    text-color: @crust;
+}
+
+element selected.normal {
+    background-color: @mauve;
+    text-color: @crust;
+}
+
+element selected.urgent {
+    background-color: @red;
+    text-color: @crust;
+}
+
+element selected.active {
+    background-color: @green;
+    text-color: @crust;
+}
+
+element alternate.normal {
+    background-color: @surface0;
+    text-color: @text;
+}
+
+element alternate.urgent {
+    background-color: @red;
+    text-color: @crust;
+}
+
+element alternate.active {
+    background-color: @green;
+    text-color: @crust;
+}
+
+scrollbar {
+    width: 4px;
+    background-color: @surface0;
+    handle-color: @mauve;
+    border-radius: 10px;
+    handle-width: 8px;
+    padding: 0 4px;
+}
+
+mode-switcher {
+    spacing: 10px;
+}
+
+button {
+    background-color: @surface0;
+    text-color: @text;
+    padding: 12px 20px;
+    border-radius: 10px;
+}
+
+button selected {
+    background-color: @mauve;
+    text-color: @crust;
+}

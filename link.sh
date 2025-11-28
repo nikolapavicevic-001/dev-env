@@ -1,49 +1,62 @@
 #!/usr/bin/env bash
 
+set -e
+
+DOTFILES_DIR="$HOME/personal/dev-env/dotfiles"
+SCRIPTS_DIR="$HOME/personal/dev-env/scripts"
+
+GREEN='\033[0;32m'
+RED='\033[0;31m'
+NC='\033[0m'
+
+link_file() {
+    local source="$1"
+    local target="$2"
+
+    mkdir -p "$(dirname "$target")"
+
+    if [ -e "$target" ] || [ -L "$target" ]; then
+        rm -rf "$target"
+    fi
+
+    ln -sf "$source" "$target"
+    echo -e "${GREEN}✓${NC} Linked: $target -> $source"
+}
+
+echo "Setting up dotfiles..."
+
 # NVIM
-rm -rf ~/.config/nvim
-ln -s $HOME/personal/dev-env/dotfiles/nvim ~/.config/nvim
+link_file "$DOTFILES_DIR/nvim" "$HOME/.config/nvim"
 
 # ZSH
-rm -rf ~/.zshrc
-rm -rf ~/.zsh_profile
-ln -s $HOME/personal/dev-env/dotfiles/zsh/.zshrc ~/.zshrc
-ln -s $HOME/personal/dev-env/dotfiles/zsh/.zsh_profile ~/.zsh_profile
+link_file "$DOTFILES_DIR/zsh/.zshrc" "$HOME/.zshrc"
+link_file "$DOTFILES_DIR/zsh/.zsh_profile" "$HOME/.zsh_profile"
 
 # TMUX
-rm -rf ~/.tmux.conf
-rm -rf ~/.config/tmux/.tmux.conf
-ln -s $HOME/personal/dev-env/dotfiles/tmux/.tmux.conf ~/.tmux.conf
-ln -s $HOME/personal/dev-env/dotfiles/tmux/.tmux.conf ~/.config/tmux/.tmux.conf
+link_file "$DOTFILES_DIR/tmux/.tmux.conf" "$HOME/.tmux.conf"
+link_file "$DOTFILES_DIR/tmux/.tmux.conf" "$HOME/.config/tmux/.tmux.conf"
 
 # ALACRITTY
-rm -rf ~/.config/alacritty
-ln -s $HOME/personal/dev-env/dotfiles/alacritty ~/.config/alacritty
+link_file "$DOTFILES_DIR/alacritty" "$HOME/.config/alacritty"
 
 # EXECUTABLES
-mkdir -p $HOME/.local/bin
-rm -rf ~/.local/bin/tmux-sessionizer
-rm -rf ~/.local/bin/dev-commit
-ln -s $HOME/personal/dev-env/scripts/tmux-sessionizer ~/.local/bin/tmux-sessionizer
-ln -s $HOME/personal/dev-env/scripts/dev-commit ~/.local/bin/dev-commit
+link_file "$SCRIPTS_DIR/tmux-sessionizer" "$HOME/.local/bin/tmux-sessionizer"
+link_file "$SCRIPTS_DIR/dev-commit" "$HOME/.local/bin/dev-commit"
 
-# Hyprland
-
-rm -rf ~/.config/hypr/hyprland.conf
-ln -s $HOME/personal/dev-env/dotfiles/hyprland/hyprland.conf ~/.config/hypr/hyprland.conf
-
-rm -rf ~/.config/hypr/hyprlock.conf
-ln -s $HOME/personal/dev-env/dotfiles/hyprland/hyprlock.conf ~/.config/hypr/hyprlock.conf
-
-rm -rf ~/.config/hypr/hyprpaper.conf
-ln -s $HOME/personal/dev-env/dotfiles/hyprland/hyprpaper.conf ~/.config/hypr/hyprpaper.conf
+# Make executables executable
+chmod +x "$HOME/.local/bin/tmux-sessionizer"
+chmod +x "$HOME/.local/bin/dev-commit"
 
 # WAYBAR
+link_file "$DOTFILES_DIR/waybar/config.jsonc" "$HOME/.config/waybar/config.jsonc"
+link_file "$DOTFILES_DIR/waybar/style.css" "$HOME/.config/waybar/style.css"
+link_file "$DOTFILES_DIR/waybar/scripts/waybar-wttr.py" "$HOME/.config/waybar/scripts/waybar-wttr.py"
+chmod +x "$HOME/.config/waybar/scripts/waybar-wttr.py"
 
-rm -rf ~/.config/waybar/config.jsonc
-ln -s $HOME/personal/dev-env/dotfiles/waybar/config.jsonc ~/.config/waybar/config.jsonc
+# HYPRLAND
+link_file "$DOTFILES_DIR/hypr/hyprland.conf" "$HOME/.config/hypr/hyprland.conf"
 
-rm -rf ~/.config/waybar/style.css
-ln -s $HOME/personal/dev-env/dotfiles/waybar/style.css ~/.config/waybar/style.css
+#ROFI
+link_file "$DOTFILES_DIR/rofi" "$HOME/.config/rofi"
 
-
+echo -e "\n${GREEN}✓ Dotfiles setup complete!${NC}"
