@@ -7,6 +7,7 @@ tmux_fzf_switch() {
 alias vim="nvim"
 alias ll="ls -la"
 alias lzd="lazydocker"
+alias docker-compose="docker compose"
 bindkey -s '^p' 'cd $(find ~/ -mindepth 1 -maxdepth 7 -type d | fzf)\n'
 
 zle -N tmux_fzf_switch
@@ -27,6 +28,7 @@ addToPath() {
 }
 
 addToPath $HOME/.local/bin
+addToPath $HOME/.local/bin/go/bin
 addToPath /usr/local/go/bin
 addToPath $HOME/flutter/bin
 addToPath $HOME/go/bin
